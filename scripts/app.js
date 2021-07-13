@@ -17,7 +17,12 @@ const friendroid = {
     modifications: 0,
     start(event) {
         console.log('package opened');
+        $('.box').addClass('robot-head').removeClass('box');
     },
+    //startAging() {
+    //    $('.age').text(`Age: ${this.age}s old`);
+     //   this.age = setInterval(this., 1000);
+    //}
 }
 
 /* 

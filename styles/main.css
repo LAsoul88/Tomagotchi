@@ -7,23 +7,30 @@
 }
 
 * {
-    background-color: green;
+    background-color: var(--text-white);
 }
 
 .title {
 
 }
+/* 
+    3. create brown box and robot-head objects
+    - in .box class, create a rectangle with a brownish box color - done
+    - in robot-head class, insert pic of robot head - done
 
+*/
 .box {
     background-color: var(--box-color);
     color: var(--box-color);
     border: 2px solid var(--box-color);
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
 }
 
 .robot-head {
-
+    content: url('https://preview.free3d.com/img/2014/09/2201641284240672407/ai8qyrd9-900.jpg');
+    width: 100px;
+    height: auto;
 }
 
 .robot-body {
@@ -36,6 +43,10 @@
 
 .open-package {
 
+}
+
+.age {
+    
 }
 
 .button-container {

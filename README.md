@@ -23,7 +23,7 @@
 /* more details */
 
 // the user clicks the 'open package' button and the box image switches out with the first form of our robo friend, its head -> clicking the button will remove the class of box and assign the class of robot-head, which will change the image
-// This will also begin the age timer, which will run throughout the game. -> a time tag with the class of 'age' will be added as a child to the div that holds the box/robot. A time method will be added that keeps track of time in seconds. 
+// This will also begin the age timer, which will run throughout the game. -> a time tag with the class of 'age' will be added as a child to the div that holds the robot. A time method will be added that keeps track of time in seconds. 
 
 // === SECTION === //
 
@@ -89,7 +89,7 @@
 // create HTML layout - done
 // create game object -> round, age, colors, battery, stimulation, modifications - done
 // event listener on button to begin game - done
-// create brown box and robot-head objects (in css)
+// create brown box and robot-head objects (in css) - done
 // create timer
 // create meters -> battery drains over time, stimulation fills over time, modifications fills with user input
 // event listeners for resepective buttons to fill battery, reduce stimulation, and fill modifications
