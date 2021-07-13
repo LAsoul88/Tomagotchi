@@ -22,9 +22,9 @@ const friendroid = {
 
 /* 
     2. event listener on button to begin game
-    - select ".open-package" from the dom
-    - add event listener "click"
-    - create a start method in friendroid object that the event listener will call
+    - select ".open-package" from the dom - done
+    - add event listener "click" - done
+    - create a start method in friendroid object that the event listener will call -done
 */
 
 $(".open-package").on("click", friendroid.start);

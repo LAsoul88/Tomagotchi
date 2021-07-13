@@ -88,8 +88,8 @@
 /* === Milestones TODO === */
 // create HTML layout - done
 // create game object -> round, age, colors, battery, stimulation, modifications - done
-// event listener on button to begin game
-// create brown box and robot objects
+// event listener on button to begin game - done
+// create brown box and robot-head objects (in css)
 // create timer
 // create meters -> battery drains over time, stimulation fills over time, modifications fills with user input
 // event listeners for resepective buttons to fill battery, reduce stimulation, and fill modifications

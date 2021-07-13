@@ -1,3 +1,11 @@
+:root {
+    --box-color: #d49c6b;
+    --robot-blue: #252b31;
+    --robot-gray: #5e6668;
+    --robot-lightgray: #c1c8c7;
+    --text-white: #f6fafb;
+}
+
 * {
     background-color: green;
 }
@@ -7,7 +15,11 @@
 }
 
 .box {
-
+    background-color: var(--box-color);
+    color: var(--box-color);
+    border: 2px solid var(--box-color);
+    width: 40px;
+    height: 40px;
 }
 
 .robot-head {
