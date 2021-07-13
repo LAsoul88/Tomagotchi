@@ -13,6 +13,32 @@
 .title {
 
 }
+
+.meter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.meter {
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.meter#battery {
+    background-color: #5BC236;
+}
+
+.meter#stimulation {
+    background-color: lightskyblue;
+}
+
+.meter#modifications {
+    background-color: var(--box-color);
+}
+
 /* 
     3. create brown box and robot-head objects
     - in .box class, create a rectangle with a brownish box color - done
@@ -46,8 +72,11 @@
 }
 
 .age {
-    
+
 }
+
+
+
 
 .button-container {
 

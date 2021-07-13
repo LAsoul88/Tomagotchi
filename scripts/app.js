@@ -21,6 +21,25 @@ const friendroid = {
         friendroid.startAging();
     },
     /* 
+        5. create meters -> battery drains over time, stimulation fills over time, modifications fills with user input
+        - assign colors to meters (in css) - done
+        - create method that gives a percentage of how full each meter is and adjusts the number in real time - done
+            -- battery meter drain should be linked to aging timer - done
+            -- stimulation meter fill should be linked to aging timer- done
+            -- modifications meter will fill with user input - TODO
+        - connect meters to their respective values in friendroid object - done
+    */
+    batteryDrain() {
+        friendroid.battery -= 3;
+        $('#battery').text(`Battery: ${friendroid.battery}%`);
+    },
+    stimulationFill() {
+        friendroid.stimulation += 4;
+        $('#stimulation').text(`Stimulation: ${friendroid.stimulation}%`);
+    },
+    
+
+    /* 
         4. create timer - keeps track of age
         - create method that starts the age timer
             -- create method aging()
@@ -31,9 +50,9 @@ const friendroid = {
     },
     aging(){
         friendroid.age++;
-        console.log(friendroid.age);
+        friendroid.batteryDrain();
+        friendroid.stimulationFill();
         $('time').text(`Age: ${friendroid.age}s old`);
-
     },
 };
 
@@ -46,8 +65,3 @@ const friendroid = {
 */
 
 $(".open-package").on("click", friendroid.start);
-/* 
-    5. create meters -> battery drains over time, stimulation fills over time, modifications fills with user input
-    - connect meters to their respective values in friendroid object
-    - 
-*/
