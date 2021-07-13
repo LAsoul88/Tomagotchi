@@ -23,7 +23,7 @@
 .meter {
     border: 2px solid black;
     margin: 10px;
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
 }
 
@@ -79,9 +79,25 @@
 
 
 .button-container {
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .button {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 8px;
+}
 
+.button#change-batteries {
+    background-color: #5BC236;
+}
+
+.button#moderate-internet {
+    background-color: lightskyblue;
+}
+
+.button#attach-parts {
+    background-color: var(--box-color);
 }
