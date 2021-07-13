@@ -2,6 +2,8 @@
 
 # Wire-Frame
 
+<img src="./Wireframe.jpg">
+
 ``` js
 
 /* User Stories */
@@ -84,8 +86,8 @@
 // a congratulations message. This will end the game in a win -> a congratulations p tag with class of "win" will be added that shows text proclaiming "you did it!". The timer will also be stopped
 
 /* === Milestones === */
-// create HTML layout
-// create game object -> round, time, colors, battery, stimulation, modifications
+// create HTML layout - done
+// create game object -> round, age, colors, battery, stimulation, modifications - done
 // event listener on button to begin game
 // create brown box and robot objects
 // create timer
