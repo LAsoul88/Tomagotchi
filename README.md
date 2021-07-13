@@ -90,10 +90,12 @@
 // create game object -> round, age, colors, battery, stimulation, modifications - done
 // event listener on button to begin game - done
 // create brown box and robot-head objects (in css) - done
-// create timer
-// create meters -> battery drains over time, stimulation fills over time, modifications fills with user input
-// event listeners for resepective buttons to fill battery, reduce stimulation, and fill modifications
+// create timer - done
+// create meters -> battery drains over time, stimulation fills over time, modifications fills with user input - done
+// methods for resepective buttons to fill battery, reduce stimulation, and fill modifications
 // create round setup -> increase difficulty -> check round number and end game after round 3
 // create failure condition -> game ends if battery = 0% or stimulation = 100%
 
 /* === Feature Creep === */
+
+// meters will fill and drain color based on the percentage they are full

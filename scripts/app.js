@@ -37,8 +37,25 @@ const friendroid = {
         friendroid.stimulation += 4;
         $('#stimulation').text(`Stimulation: ${friendroid.stimulation}%`);
     },
-    
-
+    /* 
+        6. methods for resepective buttons to fill battery, reduce stimulation, and fill modifications
+        - add method that fills battery by up to 50% (not over 100%) when pressed
+        - add method that drains stimulation by up to 40% (not under 0%) when pressed
+        - add method that fills modifications by up to 35% (not over 100%) when pressed
+        - whenever a button is pressed, all buttons must be disabled for 6 seconds
+    */
+    batteryFill(event) {
+        friendroid.battery += 50;
+        $('#battery').text(`Battery: ${friendroid.battery}%`);
+    },
+    stimulationDrain(event) {
+        friendroid.stimulation -= 40;
+        $('#stimulation').text(`Stimulation: ${friendroid.stimulation}%`);
+    },
+    modificationFill(event) {
+        friendroid.modifications += 35;
+        $('#modifications').text(`Modifications: ${friendroid.modifications}%`);
+    },
     /* 
         4. create timer - keeps track of age
         - create method that starts the age timer
@@ -65,3 +82,6 @@ const friendroid = {
 */
 
 $(".open-package").on("click", friendroid.start);
+$("#change-batteries").on("click", friendroid.batteryFill);
+$("#moderate-internet").on("click", friendroid.stimulationDrain);
+$("#attach-parts").on("click", friendroid.modificationFill);
