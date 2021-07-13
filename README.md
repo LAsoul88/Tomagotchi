@@ -11,7 +11,7 @@
 
 /* more details */
 
-// Friendroid begins with brown box on the screen -> a div container will be used to create a brown box with the class of box
+// Friendroid begins with brown box on the screen -> a div container will be used to create a brown box with the class of box, this will eventually morph into the robot
 // a button under that says 'open package' -> under the brown box div will be a button that says 'open package'
 
 // === SECTION === //
