@@ -82,3 +82,14 @@
 
 // If the player fills the modification meter a 3rd time, they can upgrade it to the 4th form. A new complete version of the robot will appear -> once the modification meter is full "robot-full" class will be replaced with "robot-complete" and the timer will be stopped
 // a congratulations message. This will end the game in a win -> a congratulations p tag with class of "win" will be added that shows text proclaiming "you did it!". The timer will also be stopped
+
+/* === Milestones === */
+// create HTML layout
+// create game object -> round, time, colors, battery, stimulation, modifications
+// event listener on button to begin game
+// create brown box and robot objects
+// create timer
+// create meters -> battery drains over time, stimulation fills over time, modifications fills with user input
+// event listeners for resepective buttons to fill battery, reduce stimulation, and fill modifications
+// create round setup -> increase difficulty -> check round number and end game after round 3
+// create failure condition -> game ends if battery = 0% or stimulation = 100%
