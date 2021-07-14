@@ -60,6 +60,10 @@ header {
     - in robot-head class, insert pic of robot head - done
 
 */
+.current-form {
+    margin: 10px;
+}
+
 .box {
     background-color: var(--true-box);
     color: var(--true-box);
