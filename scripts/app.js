@@ -42,7 +42,7 @@ const friendroid = {
         - add method that fills battery by up to 50% (not over 100%) when pressed - done
         - add method that drains stimulation by up to 40% (not under 0%) when pressed - done
         - add method that fills modifications by up to 35% (not over 100%) when pressed - done
-        - whenever a button is pressed, all buttons must be disabled for 6 seconds
+        - whenever a button is pressed, all buttons must be disabled for 2 seconds - done
     */
     batteryFill(event) {
         friendroid.battery += 50;
@@ -50,6 +50,7 @@ const friendroid = {
             friendroid.battery = 100;
         }
         $('#battery').text(`Battery: ${friendroid.battery}%`);
+        friendroid.buttonDisable();
     },
     stimulationDrain(event) {
         friendroid.stimulation -= 40;
@@ -57,6 +58,7 @@ const friendroid = {
             friendroid.stimulation = 0;
         }
         $('#stimulation').text(`Stimulation: ${friendroid.stimulation}%`);
+        friendroid.buttonDisable();
     },
     modificationFill(event) {
         friendroid.modifications += 35;
@@ -64,9 +66,16 @@ const friendroid = {
             friendroid.modifications = 100;
         }
         $('#modifications').text(`Modifications: ${friendroid.modifications}%`);
+        friendroid.buttonDisable();
+    },
+    buttonEnable() {
+        $('.button').prop('disabled', false);
+
     },
     buttonDisable() {
-
+        console.log('this works');
+        $('.button').prop('disabled', true);
+        setTimeout(friendroid.buttonEnable, 2000);
     },
     /* 
         4. create timer - keeps track of age

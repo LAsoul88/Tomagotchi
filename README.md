@@ -99,3 +99,5 @@
 /* === Feature Creep === */
 
 // meters will fill and drain color based on the percentage they are full
+// balance the values for all meters/buttons
+// 
