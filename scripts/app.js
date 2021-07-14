@@ -146,6 +146,7 @@ const frienDroid = {
    */
     
     startAging() {
+        $('.current-form').text(`Form: ${frienDroid.round}`);
         frienDroid.timer = setInterval(frienDroid.aging, 1000);
     },
     
