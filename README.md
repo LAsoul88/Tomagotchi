@@ -92,9 +92,9 @@
 // create brown box and robot-head objects (in css) - done
 // create timer - done
 // create meters -> battery drains over time, stimulation fills over time, modifications fills with user input - done
-// methods for resepective buttons to fill battery, reduce stimulation, and fill modifications
-// create round setup -> increase difficulty -> check round number and end game after round 3
+// methods for resepective buttons to fill battery, reduce stimulation, and fill modifications - done
 // create failure condition -> game ends if battery = 0% or stimulation = 100%
+// create round setup -> increase difficulty -> check round number and end game after round 3
 
 /* === Feature Creep === */
 
