@@ -1,5 +1,5 @@
 /* 
-    1. create game object
+    1. create game object - done
     - colors: array
     - age: 0
     - round: 1
@@ -12,7 +12,7 @@ const friendroid = {
     colors: ['gray', 'blue', 'red'],
     age: 0,
     round: 1,
-    battery: 100,
+    battery: 9, // TODO change back to 100 after clearInterval test
     stimulation: 0,
     modifications: 0,
     start(event) {
@@ -27,7 +27,7 @@ const friendroid = {
         - create method that gives a percentage of how full each meter is and adjusts the number in real time - done
             -- battery meter drain should be linked to aging timer - done
             -- stimulation meter fill should be linked to aging timer- done
-            -- modifications meter will fill with user input - TODO
+            -- modifications meter will fill with user input - done
         - connect meters to their respective values in friendroid object - done
     */
 
@@ -41,34 +41,24 @@ const friendroid = {
         $('#stimulation').text(`Stimulation: ${friendroid.stimulation}%`);
     },
 
+    
     /* 
-        7. create failure condition -> game ends if battery = 0% or stimulation = 100% - done
-    */
-
-    //  gameOver() {
-    //    console.log('this works');
-    //    if (friendroid.battery <= 0 || friendroid.stimulation >= 100) {
-    //        clearTimeout(friendroid.aging);
-    //    }
-    //},
-
-    /* 
-        6. methods for resepective buttons to fill battery, reduce stimulation, and fill modifications
-        - add method that fills battery by up to 50% (not over 100%) when pressed - done
-        - add method that drains stimulation by up to 40% (not under 0%) when pressed - done
-        - add method that fills modifications by up to 35% (not over 100%) when pressed - done
-        - whenever a button is pressed, all buttons must be disabled for 2 seconds - done
+    6. methods for resepective buttons to fill battery, reduce stimulation, and fill modifications
+    - add method that fills battery by up to 50% (not over 100%) when pressed - done
+    - add method that drains stimulation by up to 40% (not under 0%) when pressed - done
+    - add method that fills modifications by up to 35% (not over 100%) when pressed - done
+    - whenever a button is pressed, all buttons must be disabled for 2 seconds - done
     */     
-
-    batteryFill(event) {
-        friendroid.battery += 50;
-        if (friendroid.battery > 100) {
-            friendroid.battery = 100;
+   
+   batteryFill(event) {
+       friendroid.battery += 50;
+       if (friendroid.battery > 100) {
+           friendroid.battery = 100;
         }    
         $('#battery').text(`Battery: ${friendroid.battery}%`);
         friendroid.buttonDisable();
     },    
-
+    
     stimulationDrain(event) {
         friendroid.stimulation -= 40;
         if (friendroid.stimulation < 0) {
@@ -77,7 +67,7 @@ const friendroid = {
         $('#stimulation').text(`Stimulation: ${friendroid.stimulation}%`);
         friendroid.buttonDisable();
     },    
-
+    
     modificationFill(event) {
         friendroid.modifications += 35;
         if (friendroid.modifications > 100) {
@@ -86,40 +76,47 @@ const friendroid = {
         $('#modifications').text(`Modifications: ${friendroid.modifications}%`);
         friendroid.buttonDisable();
     },    
-
+    
     buttonEnable() {
         $('.button').prop('disabled', false);
-
+        
     },    
-
+    
     buttonDisable() {
         $('.button').prop('disabled', true);
         setTimeout(friendroid.buttonEnable, 2000);
     },    
+    
+    /* 
+    7. create failure condition -> game ends if battery = 0% or stimulation = 100% 
+    */
+    
+    timer: null,
 
     /* 
-        4. create timer - keeps track of age
-        - create method that starts the age timer
-            -- create method aging()
-            --for each second it will add one second to the text in time tag    
-    */
-
+    4. create timer - keeps track of age
+    - create method that starts the age timer
+    -- create method aging()
+    --for each second it will add one second to the text in time tag    
+   */
+    
     startAging() {
-        this.age = setInterval(this.aging, 1000);
+        friendroid.timer = setInterval(friendroid.aging, 1000);
     },
-
-    aging(){
+    
+    aging() {
         $('time').text(`Age: ${friendroid.age}s old`);
         friendroid.age++;
         friendroid.batteryDrain();
         friendroid.stimulationFill();
         //friendroid.gameOver();
         if (friendroid.battery <= 0 || friendroid.stimulation >= 100) {
-            return 'this works';
+            clearInterval(friendroid.timer);
         }    
     },
+    
+    
 };
-
 /* 
     2. event listener on button to begin game
     - select ".open-package" from the dom - done

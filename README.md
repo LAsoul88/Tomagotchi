@@ -93,7 +93,7 @@
 // create timer - done
 // create meters -> battery drains over time, stimulation fills over time, modifications fills with user input - done
 // methods for resepective buttons to fill battery, reduce stimulation, and fill modifications - done
-// create failure condition -> game ends if battery = 0% or stimulation = 100%
+// create failure condition -> game ends if battery = 0% or stimulation = 100% - done
 // create round setup -> increase difficulty -> check round number and end game after round 3
 
 /* === Feature Creep === */
