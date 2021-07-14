@@ -14,11 +14,11 @@ const frienDroid = {
     round: 1,
     battery: 100,
     stimulation: 0,
-    modifications: 0,
+    modifications: 90, // TODO change back after testing
     start(event) {
         console.log('package opened');
         $('.box').addClass('robot-head').removeClass('box');
-        frienDroid.startAging();
+        frienDroid.startAgingOne();
     },
 
     /* 
@@ -34,21 +34,16 @@ const frienDroid = {
     updateMeters() {
         $('#battery').text(`Battery: ${frienDroid.battery}%`);
         $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
+        $('#modifications').text(`Modifications: ${frienDroid.modifications}%`);
         },
 
-    batteryDrainOne() {
+    metersRunningOne() {
         frienDroid.battery -= 3;
-    },
-
-    batteryDrainTwo() {
-        frienDroid.battery -= 5;
-    },
-
-    stimulationFillOne() {
         frienDroid.stimulation += 4;
     },
 
-    stimulationFillTwo() {
+    metersRunningTwo() {
+        frienDroid.battery -= 5;
         frienDroid.stimulation += 6;
     },
 
@@ -129,43 +124,35 @@ const frienDroid = {
     --for each second it will add one second to the text in time tag    
    */
     
-    startAging() {
+    startAgingOne() {
         frienDroid.timer = setInterval(frienDroid.agingOne, 1000);
     },
     
     agingOne() {
         $('time').text(`Age: ${frienDroid.age}s old`);
         frienDroid.age++;
-        frienDroid.batteryDrainOne();
-        frienDroid.stimulationFillOne();
+        frienDroid.metersRunningOne();
         frienDroid.updateMeters();
         if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
             clearInterval(frienDroid.timer);
             $('.button').prop('disabled', true);
         } else if (frienDroid.modifications >= 100) {
-            frienDroid.battery = 100;
-            $('#battery').text(`Battery: ${frienDroid.battery}%`);
-            frienDroid.stimulation = 0;
-            $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
-            frienDroid.modifications = 0;
-            $('#modifications').text(`Modifications: ${frienDroid.modifications}%`);
-            clearInterval(frienDroid.timer);
-            $('.button').prop('disabled', true);
-            console.log('this is happening');
-            frienDroid.resumeAging();
+            frienDroid.startAgingTwo();
         }   
     },
     
-    resumeAging() {
-        console.log('this is also happening');
+    startAgingTwo() {
+        frienDroid.battery = 100;
+        frienDroid.stimulation = 0;
+        frienDroid.modifications = 0;
+        frienDroid.updateMeters();
         frienDroid.timer = setInterval(frienDroid.agingTwo, 1000);      
     },
     
     agingTwo() {
         $('time').text(`Age: ${frienDroid.age}s old`);
         frienDroid.age++;
-        frienDroid.batteryDrainTwo();
-        frienDroid.stimulationFillTwo();
+        frienDroid.metersRunningTwo();
         if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
             clearInterval(frienDroid.timer);
             $('.button').prop('disabled', true);
