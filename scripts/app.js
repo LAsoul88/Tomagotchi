@@ -28,27 +28,28 @@ const frienDroid = {
             -- battery meter drain should be linked to aging timer - done
             -- stimulation meter fill should be linked to aging timer- done
             -- modifications meter will fill with user input - done
-        - connect meters to their respective values in friendroid object - done
-    */
+            - connect meters to their respective values in friendroid object - done
+            */
+
+    updateMeters() {
+        $('#battery').text(`Battery: ${frienDroid.battery}%`);
+        $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
+        },
 
     batteryDrainOne() {
         frienDroid.battery -= 3;
-        $('#battery').text(`Battery: ${frienDroid.battery}%`);
     },
 
     batteryDrainTwo() {
         frienDroid.battery -= 5;
-        $('#battery').text(`Battery: ${frienDroid.battery}%`);
     },
 
     stimulationFillOne() {
         frienDroid.stimulation += 4;
-        $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
     },
 
     stimulationFillTwo() {
         frienDroid.stimulation += 6;
-        $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
     },
 
     
@@ -100,7 +101,7 @@ const frienDroid = {
         frienDroid.modifications += 10;
         if (frienDroid.modifications > 100) {
             frienDroid.modifications = 100;
-        }    
+        }
         $('#modifications').text(`Modifications: ${frienDroid.modifications}%`);
         frienDroid.buttonDisable();
     },    
@@ -137,14 +138,27 @@ const frienDroid = {
         frienDroid.age++;
         frienDroid.batteryDrainOne();
         frienDroid.stimulationFillOne();
+        frienDroid.updateMeters();
         if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
             clearInterval(frienDroid.timer);
             $('.button').prop('disabled', true);
         } else if (frienDroid.modifications >= 100) {
+            frienDroid.battery = 100;
+            $('#battery').text(`Battery: ${frienDroid.battery}%`);
+            frienDroid.stimulation = 0;
+            $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
             frienDroid.modifications = 0;
+            $('#modifications').text(`Modifications: ${frienDroid.modifications}%`);
             clearInterval(frienDroid.timer);
-            frienDroid.timer = setInterval(frienDroid.againTwo, 1000);
+            $('.button').prop('disabled', true);
+            console.log('this is happening');
+            frienDroid.resumeAging();
         }   
+    },
+    
+    resumeAging() {
+        console.log('this is also happening');
+        frienDroid.timer = setInterval(frienDroid.agingTwo, 1000);      
     },
     
     agingTwo() {
@@ -159,7 +173,7 @@ const frienDroid = {
             frienDroid.modifications = 0;
             clearInterval(frienDroid.timer);
         }
-    }
+    },
 };
 /* 
     2. event listener on button to begin game
@@ -172,4 +186,4 @@ const frienDroid = {
 $(".open-package").on("click", frienDroid.start);
 $("#change-batteries").on("click", frienDroid.batteryFillOne);
 $("#moderate-internet").on("click", frienDroid.stimulationDrainOne);
-$("#attach-parts").on("click", frienDroid.modificationFillOne);
+$("#attach-parts").on("click", frienDroid.modificationFill);
