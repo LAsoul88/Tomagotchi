@@ -12,7 +12,7 @@ const friendroid = {
     colors: ['gray', 'blue', 'red'],
     age: 0,
     round: 1,
-    battery: 9, // TODO change back to 100 after clearInterval test
+    battery: 100,
     stimulation: 0,
     modifications: 0,
     start(event) {
@@ -109,9 +109,9 @@ const friendroid = {
         friendroid.age++;
         friendroid.batteryDrain();
         friendroid.stimulationFill();
-        //friendroid.gameOver();
         if (friendroid.battery <= 0 || friendroid.stimulation >= 100) {
             clearInterval(friendroid.timer);
+            $('.button').prop('disabled', true);
         }    
     },
     
