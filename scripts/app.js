@@ -152,8 +152,8 @@ const frienDroid = {
     },
     
     aging() {
-        $('time').text(`Age: ${frienDroid.age}s old`);
         frienDroid.age++;
+        $('time').text(`Age: ${frienDroid.age}s old`);
         if (frienDroid.round === 1) {
             frienDroid.metersRunningOne();
             if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
@@ -196,7 +196,7 @@ const frienDroid = {
     
     hide() {
         $('.invisible').css('visibility', 'hidden');
-    }
+    },
 };
 /* 
     2. event listener on button to begin game
