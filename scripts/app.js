@@ -39,18 +39,18 @@ const frienDroid = {
         },
 
     metersRunningOne() {
-        frienDroid.battery -= 3;
-        frienDroid.stimulation += 4;
+        frienDroid.battery -= 4;
+        frienDroid.stimulation += 3;
     },
 
     metersRunningTwo() {
-        frienDroid.battery -= 5;
-        frienDroid.stimulation += 6;
+        frienDroid.battery -= 6;
+        frienDroid.stimulation += 5;
     },
 
     metersRunningThree() {
-        frienDroid.battery -= 7;
-        frienDroid.stimulation += 8;
+        frienDroid.battery -= 8;
+        frienDroid.stimulation += 7;
     },
     
     /* 
@@ -61,40 +61,40 @@ const frienDroid = {
     - whenever a button is pressed, all buttons must be disabled for 2 seconds - done
     */     
 
-    batteryFillOne(event) {
-        frienDroid.battery += 50;
-        if (frienDroid.battery > 100) {
-            frienDroid.battery = 100;
-        }    
-        $('#battery').text(`Battery: ${frienDroid.battery}%`);
-        frienDroid.buttonDisable();
+    batteryFill(event) {
+        if (frienDroid.round === 1) {
+            frienDroid.battery += 50;
+            if (frienDroid.battery > 100) {
+                frienDroid.battery = 100;
+            }    
+            $('#battery').text(`Battery: ${frienDroid.battery}%`);
+            frienDroid.buttonDisable();
+        } else if (frienDroid.round === 2) {
+            frienDroid.battery += 40;
+            if (frienDroid.battery > 100) {
+                frienDroid.battery = 100;
+            }    
+            $('#battery').text(`Battery: ${frienDroid.battery}%`);
+            frienDroid.buttonDisable();
+        }
     },    
-    
-    batteryFillTwo(event) {
-        frienDroid.battery += 40;
-        if (frienDroid.battery > 100) {
-            frienDroid.battery = 100;
-        }    
-        $('#battery').text(`Battery: ${frienDroid.battery}%`);
-        frienDroid.buttonDisable();
-    },
 
-    stimulationDrainOne(event) {
-        frienDroid.stimulation -= 40;
-        if (frienDroid.stimulation < 0) {
-            frienDroid.stimulation = 0;
-        }    
-        $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
-        frienDroid.buttonDisable();
-    },    
-    
-    stimulationDrainTwo(event) {
-        frienDroid.stimulation -= 30;
-        if (frienDroid.stimulation < 0) {
-            frienDroid.stimulation = 0;
-        }    
-        $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
-        frienDroid.buttonDisable();
+    stimulationDrain(event) {
+        if (frienDroid.round === 1) {
+            frienDroid.stimulation -= 40;
+            if (frienDroid.stimulation < 0) {
+                frienDroid.stimulation = 0;
+            }    
+            $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
+            frienDroid.buttonDisable();
+        } else if (frienDroid.round === 2) {
+            frienDroid.stimulation -= 30;
+            if (frienDroid.stimulation < 0) {
+                frienDroid.stimulation = 0;
+            }    
+            $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
+            frienDroid.buttonDisable();
+        }
     },    
 
     modificationFill(event) {
@@ -148,6 +148,7 @@ const frienDroid = {
                 frienDroid.battery = 100;
                 frienDroid.stimulation = 0;
                 frienDroid.modifications = 0;
+                frienDroid.updateMeters();
             }
         } else if (frienDroid.round === 2) {
             $('time').text(`Age: ${frienDroid.age}s old`);
@@ -162,6 +163,7 @@ const frienDroid = {
                 frienDroid.battery = 100;
                 frienDroid.stimulation = 0;
                 frienDroid.modifications = 0;
+                frienDroid.updateMeters();
             }
         }   
     },
@@ -175,6 +177,6 @@ const frienDroid = {
 */
 
 $(".open-package").on("click", frienDroid.start);
-$("#change-batteries").on("click", frienDroid.batteryFillOne);
-$("#moderate-internet").on("click", frienDroid.stimulationDrainOne);
+$("#change-batteries").on("click", frienDroid.batteryFill);
+$("#moderate-internet").on("click", frienDroid.stimulationDrain);
 $("#attach-parts").on("click", frienDroid.modificationFill);
