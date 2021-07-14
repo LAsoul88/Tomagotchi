@@ -19,6 +19,7 @@ const frienDroid = {
         console.log('package opened');
         $('.box').addClass('robot-head').removeClass('box');
         frienDroid.startAging();
+        frienDroid.reveal();
     },
 
     /* 
@@ -188,6 +189,10 @@ const frienDroid = {
             }    
         }  
     },
+
+    reveal() {
+        $('.invisible').css('visibility', 'visible');
+    }
 };
 /* 
     2. event listener on button to begin game

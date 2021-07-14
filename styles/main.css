@@ -88,7 +88,6 @@ header {
     
 }
 
-
 .age {
     margin: 10px;
 }
@@ -96,8 +95,6 @@ header {
 .open-package {
     margin: 10px;
 }
-
-
 
 .button-container {
     display: flex;
@@ -123,3 +120,7 @@ header {
 .button#attach-parts {
     background-color: var(--box-color);
 }
+
+.invisible {
+    visibility: hidden;
+} 
