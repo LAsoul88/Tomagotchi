@@ -121,6 +121,10 @@ header {
     background-color: var(--box-color);
 }
 
-.invisible {
+.visible {
     visibility: hidden;
 } 
+
+.invisible {
+    visibility: visible;
+}

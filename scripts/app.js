@@ -14,12 +14,12 @@ const frienDroid = {
     round: 1,
     battery: 100,
     stimulation: 0,
-    modifications: 90, // TODO change back after testing
+    modifications: 0,
     start(event) {
-        console.log('package opened');
         $('.box').addClass('robot-head').removeClass('box');
         frienDroid.startAging();
         frienDroid.reveal();
+        frienDroid.hide();
     },
 
     /* 
@@ -191,7 +191,11 @@ const frienDroid = {
     },
 
     reveal() {
-        $('.invisible').css('visibility', 'visible');
+        $('.visible').css('visibility', 'visible');
+    },
+    
+    hide() {
+        $('.invisible').css('visibility', 'hidden');
     }
 };
 /* 
