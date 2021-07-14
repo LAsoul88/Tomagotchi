@@ -4,14 +4,16 @@
     --robot-gray: #5e6668;
     --robot-lightgray: #c1c8c7;
     --text-white: #f6fafb;
+    --true-box: #92623a;
 }
 
 * {
-    background-color: var(--text-white);
+    background-color: var(--robot-lightgray);
 }
 
 header {
     text-align: center;
+    color: var(--robot-blue);
 }
 
 .title {
@@ -59,11 +61,12 @@ header {
 
 */
 .box {
-    background-color: var(--box-color);
-    color: var(--box-color);
+    background-color: var(--true-box);
+    color: var(--true-box);
     border: 2px solid black;
     width: 100px;
     height: 100px;
+    border-radius: 5px;
 }
 
 .robot-head {

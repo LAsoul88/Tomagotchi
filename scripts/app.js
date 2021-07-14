@@ -8,7 +8,7 @@
     - modifications: 0
  */
 
-const friendroid = {
+const frienDroid = {
     colors: ['gray', 'blue', 'red'],
     age: 0,
     round: 1,
@@ -18,7 +18,7 @@ const friendroid = {
     start(event) {
         console.log('package opened');
         $('.box').addClass('robot-head').removeClass('box');
-        friendroid.startAging();
+        frienDroid.startAging();
     },
 
     /* 
@@ -31,14 +31,24 @@ const friendroid = {
         - connect meters to their respective values in friendroid object - done
     */
 
-    batteryDrain() {
-        friendroid.battery -= 3;
-        $('#battery').text(`Battery: ${friendroid.battery}%`);
+    batteryDrainOne() {
+        frienDroid.battery -= 3;
+        $('#battery').text(`Battery: ${frienDroid.battery}%`);
     },
 
-    stimulationFill() {
-        friendroid.stimulation += 4;
-        $('#stimulation').text(`Stimulation: ${friendroid.stimulation}%`);
+    batteryDrainTwo() {
+        frienDroid.battery -= 5;
+        $('#battery').text(`Battery: ${frienDroid.battery}%`);
+    },
+
+    stimulationFillOne() {
+        frienDroid.stimulation += 4;
+        $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
+    },
+
+    stimulationFillTwo() {
+        frienDroid.stimulation += 6;
+        $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
     },
 
     
@@ -49,32 +59,50 @@ const friendroid = {
     - add method that fills modifications by up to 35% (not over 100%) when pressed - done
     - whenever a button is pressed, all buttons must be disabled for 2 seconds - done
     */     
-   
-   batteryFill(event) {
-       friendroid.battery += 50;
-       if (friendroid.battery > 100) {
-           friendroid.battery = 100;
+
+    batteryFillOne(event) {
+        frienDroid.battery += 50;
+        if (frienDroid.battery > 100) {
+            frienDroid.battery = 100;
         }    
-        $('#battery').text(`Battery: ${friendroid.battery}%`);
-        friendroid.buttonDisable();
+        $('#battery').text(`Battery: ${frienDroid.battery}%`);
+        frienDroid.buttonDisable();
     },    
     
-    stimulationDrain(event) {
-        friendroid.stimulation -= 40;
-        if (friendroid.stimulation < 0) {
-            friendroid.stimulation = 0;
+    batteryFillTwo(event) {
+        frienDroid.battery += 40;
+        if (frienDroid.battery > 100) {
+            frienDroid.battery = 100;
         }    
-        $('#stimulation').text(`Stimulation: ${friendroid.stimulation}%`);
-        friendroid.buttonDisable();
+        $('#battery').text(`Battery: ${frienDroid.battery}%`);
+        frienDroid.buttonDisable();
+    },
+
+    stimulationDrainOne(event) {
+        frienDroid.stimulation -= 40;
+        if (frienDroid.stimulation < 0) {
+            frienDroid.stimulation = 0;
+        }    
+        $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
+        frienDroid.buttonDisable();
     },    
     
+    stimulationDrainTwo(event) {
+        frienDroid.stimulation -= 30;
+        if (frienDroid.stimulation < 0) {
+            frienDroid.stimulation = 0;
+        }    
+        $('#stimulation').text(`Stimulation: ${frienDroid.stimulation}%`);
+        frienDroid.buttonDisable();
+    },    
+
     modificationFill(event) {
-        friendroid.modifications += 35;
-        if (friendroid.modifications > 100) {
-            friendroid.modifications = 100;
+        frienDroid.modifications += 10;
+        if (frienDroid.modifications > 100) {
+            frienDroid.modifications = 100;
         }    
-        $('#modifications').text(`Modifications: ${friendroid.modifications}%`);
-        friendroid.buttonDisable();
+        $('#modifications').text(`Modifications: ${frienDroid.modifications}%`);
+        frienDroid.buttonDisable();
     },    
     
     buttonEnable() {
@@ -84,7 +112,7 @@ const friendroid = {
     
     buttonDisable() {
         $('.button').prop('disabled', true);
-        setTimeout(friendroid.buttonEnable, 2000);
+        setTimeout(frienDroid.buttonEnable, 2000);
     },    
     
     /* 
@@ -101,21 +129,37 @@ const friendroid = {
    */
     
     startAging() {
-        friendroid.timer = setInterval(friendroid.aging, 1000);
+        frienDroid.timer = setInterval(frienDroid.agingOne, 1000);
     },
     
-    aging() {
-        $('time').text(`Age: ${friendroid.age}s old`);
-        friendroid.age++;
-        friendroid.batteryDrain();
-        friendroid.stimulationFill();
-        if (friendroid.battery <= 0 || friendroid.stimulation >= 100) {
-            clearInterval(friendroid.timer);
+    agingOne() {
+        $('time').text(`Age: ${frienDroid.age}s old`);
+        frienDroid.age++;
+        frienDroid.batteryDrainOne();
+        frienDroid.stimulationFillOne();
+        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
+            clearInterval(frienDroid.timer);
             $('.button').prop('disabled', true);
-        }    
+        } else if (frienDroid.modifications >= 100) {
+            frienDroid.modifications = 0;
+            clearInterval(frienDroid.timer);
+            frienDroid.timer = setInterval(frienDroid.againTwo, 1000);
+        }   
     },
     
-    
+    agingTwo() {
+        $('time').text(`Age: ${frienDroid.age}s old`);
+        frienDroid.age++;
+        frienDroid.batteryDrainTwo();
+        frienDroid.stimulationFillTwo();
+        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
+            clearInterval(frienDroid.timer);
+            $('.button').prop('disabled', true);
+        } else if (frienDroid.modifications >= 100) {
+            frienDroid.modifications = 0;
+            clearInterval(frienDroid.timer);
+        }
+    }
 };
 /* 
     2. event listener on button to begin game
@@ -125,7 +169,7 @@ const friendroid = {
     -
 */
 
-$(".open-package").on("click", friendroid.start);
-$("#change-batteries").on("click", friendroid.batteryFill);
-$("#moderate-internet").on("click", friendroid.stimulationDrain);
-$("#attach-parts").on("click", friendroid.modificationFill);
+$(".open-package").on("click", frienDroid.start);
+$("#change-batteries").on("click", frienDroid.batteryFillOne);
+$("#moderate-internet").on("click", frienDroid.stimulationDrainOne);
+$("#attach-parts").on("click", frienDroid.modificationFillOne);
