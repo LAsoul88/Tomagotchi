@@ -15,10 +15,11 @@ const frienDroid = {
     battery: 100,
     stimulation: 0,
     modifications: 90, // TODO change back after testing
+    round: 1,
     start(event) {
         console.log('package opened');
         $('.box').addClass('robot-head').removeClass('box');
-        frienDroid.startAgingOne();
+        frienDroid.startAging();
     },
 
     /* 
@@ -47,6 +48,10 @@ const frienDroid = {
         frienDroid.stimulation += 6;
     },
 
+    metersRunningThree() {
+        frienDroid.battery -= 7;
+        frienDroid.stimulation += 8;
+    },
     
     /* 
     6. methods for resepective buttons to fill battery, reduce stimulation, and fill modifications
@@ -124,42 +129,41 @@ const frienDroid = {
     --for each second it will add one second to the text in time tag    
    */
     
-    startAgingOne() {
-        frienDroid.timer = setInterval(frienDroid.agingOne, 1000);
+    startAging() {
+        frienDroid.timer = setInterval(frienDroid.aging, 1000);
+        console.log('does this print?');
     },
     
-    agingOne() {
-        $('time').text(`Age: ${frienDroid.age}s old`);
-        frienDroid.age++;
-        frienDroid.metersRunningOne();
-        frienDroid.updateMeters();
-        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
-            clearInterval(frienDroid.timer);
-            $('.button').prop('disabled', true);
-        } else if (frienDroid.modifications >= 100) {
-            frienDroid.startAgingTwo();
+    aging() {
+        if (frienDroid.round === 1) {
+            $('time').text(`Age: ${frienDroid.age}s old`);
+            frienDroid.age++;
+            frienDroid.metersRunningOne();
+            frienDroid.updateMeters();
+            if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
+                clearInterval(frienDroid.timer);
+                $('.button').prop('disabled', true);
+            } else if (frienDroid.modifications >= 100) {
+                frienDroid.round++;
+                frienDroid.battery = 100;
+                frienDroid.stimulation = 0;
+                frienDroid.modifications = 0;
+            }
+        } else if (frienDroid.round === 2) {
+            $('time').text(`Age: ${frienDroid.age}s old`);
+            frienDroid.age++;
+            frienDroid.metersRunningTwo();
+            frienDroid.updateMeters();
+            if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
+                clearInterval(frienDroid.timer);
+                $('.button').prop('disabled', true);
+            } else if (frienDroid.modifications >= 100) {
+                frienDroid.round++;
+                frienDroid.battery = 100;
+                frienDroid.stimulation = 0;
+                frienDroid.modifications = 0;
+            }
         }   
-    },
-    
-    startAgingTwo() {
-        frienDroid.battery = 100;
-        frienDroid.stimulation = 0;
-        frienDroid.modifications = 0;
-        frienDroid.updateMeters();
-        frienDroid.timer = setInterval(frienDroid.agingTwo, 1000);      
-    },
-    
-    agingTwo() {
-        $('time').text(`Age: ${frienDroid.age}s old`);
-        frienDroid.age++;
-        frienDroid.metersRunningTwo();
-        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
-            clearInterval(frienDroid.timer);
-            $('.button').prop('disabled', true);
-        } else if (frienDroid.modifications >= 100) {
-            frienDroid.modifications = 0;
-            clearInterval(frienDroid.timer);
-        }
     },
 };
 /* 
