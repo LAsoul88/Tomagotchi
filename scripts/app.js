@@ -248,6 +248,8 @@ const frienDroid = {
         }  
     },
     gameOver() {
+        $('.meter').css('visibility', 'hidden');
+        $('.button').css('visibility', 'hidden');
         if (frienDroid.round === 4) {
             $('.current-form').text('Congrats, you finished your frienDroid! Good thing this one is your friend...').css('font-size', '20px');
         }
