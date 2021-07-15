@@ -170,7 +170,7 @@ const frienDroid = {
     },    
     
     buttonDisable() {
-        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100 || frienDroid.modifications >= 100) {
+        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100 || frienDroid.round === 4) {
             $('.button').prop('disabled', true);
         } else {
             $('.button').prop('disabled', true);
@@ -191,10 +191,19 @@ const frienDroid = {
     --for each second it will add one second to the text in time tag    
    */
     
+    shakeOne() {
+        $('.robot').addClass('shake-one');
+    },
+
+    shakeTwo() {
+        $('.robot').addClass('shake-two')
+    },
+
     updateRobot() {
         frienDroid.round++;
         $('.current-form').text(`Form: ${frienDroid.round}`);
         $('.robot').addClass(`robot${frienDroid.round}`);
+
     },
     
     startAging() {
@@ -245,6 +254,7 @@ const frienDroid = {
     - create a start method in friendroid object that the event listener will call -done
     -
 */
+
 
 $(".instructions").on("click", frienDroid.instructions);
 $(".open-package").on("click", frienDroid.openPackage);
