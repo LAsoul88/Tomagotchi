@@ -170,7 +170,7 @@ const frienDroid = {
     },    
     
     buttonDisable() {
-        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
+        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100 || frienDroid.modifications >= 100) {
             $('.button').prop('disabled', true);
         } else {
             $('.button').prop('disabled', true);
@@ -233,11 +233,10 @@ const frienDroid = {
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.updateRobot();
                 clearInterval(frienDroid.timer);
+                frienDroid.buttonDisable();
             }    
         }  
     },
-
-
 };
 /* 
     2. event listener on button to begin game
