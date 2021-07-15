@@ -112,22 +112,22 @@ p {
     border-radius: 5px;
 }
 
-.robot-head {
+.robot1 {
     content: url('https://preview.free3d.com/img/2014/09/2201641284240672407/ai8qyrd9-900.jpg');
     width: 100px;
     height: 100px;
     margin: 10px;
 }
 
-.robot-body {
+.robot2 {
     content: url('https://image.shutterstock.com/image-illustration/faceless-robotic-torso-visible-connections-260nw-1466376647.jpg');
 }
 
-.robot-full {
+.robot3 {
     content: url('https://st3.depositphotos.com/10325516/16272/i/1600/depositphotos_162724054-stock-photo-robot-full-body.jpg');
 }
 
-.robot-final {
+.robot4 {
     content: url('https://ichef.bbci.co.uk/news/976/cpsprodpb/A58C/production/_97508324_robowar.jpg');
 }
 

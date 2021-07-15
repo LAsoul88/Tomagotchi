@@ -29,7 +29,7 @@ const frienDroid = {
 
     openPackage(event) {
         $('.instructions, .typed-sentence, .typewriter').css('display', 'none');
-        $('.robot').addClass('robot-head').removeClass('box');
+        $('.robot').addClass('robot1').removeClass('box');
         frienDroid.hide();
         frienDroid.nameReveal();
     },
@@ -191,6 +191,12 @@ const frienDroid = {
     --for each second it will add one second to the text in time tag    
    */
     
+    updateRobot() {
+        frienDroid.round++;
+        $('.current-form').text(`Form: ${frienDroid.round}`);
+        $('.robot').addClass(`robot${frienDroid.round}`);
+    },
+    
     startAging() {
         $('.current-form').text(`Form: ${frienDroid.round}`);
         frienDroid.timer = setInterval(frienDroid.aging, 1000);
@@ -205,9 +211,7 @@ const frienDroid = {
                 frienDroid.buttonDisable();
                 clearInterval(frienDroid.timer);
             } else if (frienDroid.modifications >= 100) {
-                frienDroid.round++;
-                $('.current-form').text(`Form: ${frienDroid.round}`);
-                $('.robot').addClass('robot-body');
+                frienDroid.updateRobot();
                 frienDroid.resetMeters();
                 frienDroid.updateMeters();
             }
@@ -217,9 +221,7 @@ const frienDroid = {
                 frienDroid.buttonDisable();
                 clearInterval(frienDroid.timer);
             } else if (frienDroid.modifications >= 100) {
-                frienDroid.round++;
-                $('.current-form').text(`Form: ${frienDroid.round}`);
-                $('.robot').addClass('robot-full');
+                frienDroid.updateRobot();
                 frienDroid.resetMeters();
                 frienDroid.updateMeters();
             }
@@ -229,9 +231,7 @@ const frienDroid = {
                 frienDroid.buttonDisable();
                 clearInterval(frienDroid.timer);
             } else if (frienDroid.modifications >= 100) {
-                frienDroid.round++;
-                $('.current-form').text(`Form: ${frienDroid.round}`);
-                $('.robot').addClass('robot-full');
+                frienDroid.updateRobot();
                 clearInterval(frienDroid.timer);
             }    
         }  
