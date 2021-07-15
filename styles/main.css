@@ -98,6 +98,8 @@ p {
 
 .open-package {
     margin: 10px;
+    border-radius: 8px;
+    background-color: lightskyblue;
 }
 
 .name-container {
@@ -109,8 +111,14 @@ p {
     margin: 10px;
 }
 
+.name-styling {
+    border-radius: 8px;
+    background-color: #5BC236;
+}
+
 .name-button {
     margin: 10px;
+    background-color: lightskyblue;
 }
 
 .button-container {
