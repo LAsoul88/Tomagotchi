@@ -104,3 +104,4 @@
 // meters will fill and drain color based on the percentage they are full
 // balance the values for all meters/buttons
 // intro screen will display text (maybe animated like a typewriter) to explain the rules of the game
+// add button that resets game to opening state (open package button)

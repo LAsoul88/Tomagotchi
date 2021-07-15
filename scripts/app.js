@@ -53,13 +53,13 @@ const frienDroid = {
 
     metersRunningTwo() {
         frienDroid.battery -= 6;
-        frienDroid.stimulation += 5;
+        frienDroid.stimulation += 4;
         frienDroid.updateMeters();
     },
 
     metersRunningThree() {
-        frienDroid.battery -= 8;
-        frienDroid.stimulation += 7;
+        frienDroid.battery -= 7;
+        frienDroid.stimulation += 5;
         frienDroid.updateMeters();
     },
     
@@ -142,8 +142,12 @@ const frienDroid = {
     },    
     
     buttonDisable() {
-        $('.button').prop('disabled', true);
-        setTimeout(frienDroid.buttonEnable, 2000);
+        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
+            $('.button').prop('disabled', true);
+        } else {
+            $('.button').prop('disabled', true);
+            setTimeout(frienDroid.buttonEnable, 2000);
+        }
     },    
     
     /* 
@@ -170,10 +174,11 @@ const frienDroid = {
         if (frienDroid.round === 1) {
             frienDroid.metersRunningOne();
             if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
+                frienDroid.buttonDisable();
                 clearInterval(frienDroid.timer);
-                $('.button').prop('disabled', true);
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.round++;
+                $('.current-form').text(`Form: ${frienDroid.round}`);
                 $('.robot').addClass('robot-body');
                 frienDroid.resetMeters();
                 frienDroid.updateMeters();
@@ -181,10 +186,11 @@ const frienDroid = {
         } else if (frienDroid.round === 2) {
             frienDroid.metersRunningTwo();
             if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
+                frienDroid.buttonDisable();
                 clearInterval(frienDroid.timer);
-                $('.button').prop('disabled', true);
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.round++;
+                $('.current-form').text(`Form: ${frienDroid.round}`);
                 $('.robot').addClass('robot-full');
                 frienDroid.resetMeters();
                 frienDroid.updateMeters();
@@ -192,10 +198,11 @@ const frienDroid = {
         } else {
             frienDroid.metersRunningThree();
             if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
+                frienDroid.buttonDisable();
                 clearInterval(frienDroid.timer);
-                $('.button').prop('disabled', true);
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.round++;
+                $('.current-form').text(`Form: ${frienDroid.round}`);
                 $('.robot').addClass('robot-full');
                 clearInterval(frienDroid.timer);
             }    
