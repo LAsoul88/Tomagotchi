@@ -94,10 +94,12 @@
 // create meters -> battery drains over time, stimulation fills over time, modifications fills with user input - done
 // methods for resepective buttons to fill battery, reduce stimulation, and fill modifications - done
 // create failure condition -> game ends if battery = 0% or stimulation = 100% - done
-// create round setup -> increase difficulty -> check round number and end game after round 3 
+// create round setup -> increase difficulty - done
+// check round number and end game after round 3 
+// find pictures for other robot forms and create mechanism to switch them out depending on the round  
 
 /* === Feature Creep === */
 
 // meters will fill and drain color based on the percentage they are full
 // balance the values for all meters/buttons
-// 
+// intro screen will display text (maybe animated like a typewriter) to explain the rules of the game
