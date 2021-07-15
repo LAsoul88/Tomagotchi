@@ -68,12 +68,13 @@ p {
     margin: 10px;
 }
 
-.box {
+.robot {
     background-color: var(--true-box);
     color: var(--true-box);
     border: 2px solid black;
     width: 100px;
     height: 100px;
+    margin: 10px;
     border-radius: 5px;
 }
 
@@ -85,11 +86,15 @@ p {
 }
 
 .robot-body {
-    
+    content: url('https://image.shutterstock.com/image-illustration/faceless-robotic-torso-visible-connections-260nw-1466376647.jpg');
 }
 
 .robot-full {
-    
+    content: url('https://st3.depositphotos.com/10325516/16272/i/1600/depositphotos_162724054-stock-photo-robot-full-body.jpg');
+}
+
+.robot-final {
+    content: url('https://ichef.bbci.co.uk/news/976/cpsprodpb/A58C/production/_97508324_robowar.jpg');
 }
 
 .age {

@@ -17,7 +17,7 @@ const frienDroid = {
     modifications: 0,
 
     openPackage(event) {
-        $('.box').addClass('robot-head').removeClass('box');
+        $('.robot').addClass('robot-head').removeClass('box');
         frienDroid.hide();
         frienDroid.nameReveal();
     },
@@ -63,6 +63,12 @@ const frienDroid = {
         frienDroid.updateMeters();
     },
     
+    resetMeters() {
+        frienDroid.battery = 100;
+        frienDroid.stimulation = 0;
+        frienDroid.modifications = 0;
+    },
+
     /* 
     6. methods for resepective buttons to fill battery, reduce stimulation, and fill modifications
     - add method that fills battery by up to 50% (not over 100%) when pressed - done
@@ -168,9 +174,8 @@ const frienDroid = {
                 $('.button').prop('disabled', true);
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.round++;
-                frienDroid.battery = 100;
-                frienDroid.stimulation = 0;
-                frienDroid.modifications = 0;
+                $('.robot').addClass('robot-body');
+                frienDroid.resetMeters();
                 frienDroid.updateMeters();
             }
         } else if (frienDroid.round === 2) {
@@ -180,9 +185,8 @@ const frienDroid = {
                 $('.button').prop('disabled', true);
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.round++;
-                frienDroid.battery = 100;
-                frienDroid.stimulation = 0;
-                frienDroid.modifications = 0;
+                $('.robot').addClass('robot-full');
+                frienDroid.resetMeters();
                 frienDroid.updateMeters();
             }
         } else {
@@ -192,6 +196,7 @@ const frienDroid = {
                 $('.button').prop('disabled', true);
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.round++;
+                $('.robot').addClass('robot-full');
                 clearInterval(frienDroid.timer);
             }    
         }  
