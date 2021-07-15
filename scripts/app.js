@@ -16,7 +16,19 @@ const frienDroid = {
     stimulation: 0,
     modifications: 0,
 
+    typing() {
+        $('.typed-sentence').eq(0).addClass('typewriter');
+        $('.typed-sentence').eq(0).css('display', 'block').removeClass('typed-sentence');
+    },
+    
+    instructions(event) {
+        $('.instructions').css('display', 'none');
+        frienDroid.typing()
+        setInterval(frienDroid.typing, 2500);
+    },
+
     openPackage(event) {
+        $('.instructions, .typed-sentence, .typewriter').css('display', 'none');
         $('.robot').addClass('robot-head').removeClass('box');
         frienDroid.hide();
         frienDroid.nameReveal();
@@ -28,10 +40,26 @@ const frienDroid = {
         frienDroid.reveal();
         frienDroid.startAging();
     },
+    
+    nameReveal() {
+        $('.name-visible').css('visibility', 'visible');
+    },
+
+    nameHide() {
+        $('.disappear').css('display', 'none');
+    },
+
+    reveal() {
+        $('.visible').css('visibility', 'visible');
+    },
+    
+    hide() {
+        $('.invisible').css('visibility', 'hidden');
+    },
 
     /* 
-        5. create meters -> battery drains over time, stimulation fills over time, modifications fills with user input
-        - assign colors to meters (in css) - done
+    5. create meters -> battery drains over time, stimulation fills over time, modifications fills with user input
+    - assign colors to meters (in css) - done
         - create method that gives a percentage of how full each meter is and adjusts the number in real time - done
             -- battery meter drain should be linked to aging timer - done
             -- stimulation meter fill should be linked to aging timer- done
@@ -209,21 +237,6 @@ const frienDroid = {
         }  
     },
 
-    nameReveal() {
-        $('.name-visible').css('visibility', 'visible');
-    },
-
-    nameHide() {
-        $('.disappear').css('display', 'none');
-    },
-
-    reveal() {
-        $('.visible').css('visibility', 'visible');
-    },
-    
-    hide() {
-        $('.invisible').css('visibility', 'hidden');
-    },
 
 };
 /* 
@@ -234,6 +247,7 @@ const frienDroid = {
     -
 */
 
+$(".instructions").on("click", frienDroid.instructions);
 $(".open-package").on("click", frienDroid.openPackage);
 $(".name-button").on("click", frienDroid.start);
 $("#change-batteries").on("click", frienDroid.batteryFill);

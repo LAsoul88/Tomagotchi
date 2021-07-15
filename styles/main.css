@@ -1,6 +1,6 @@
 :root {
     --box-color: #d49c6b;
-    --robot-blue: #252b31;
+    --robot-blue: #242e37;
     --robot-gray: #5e6668;
     --robot-lightgray: #c1c8c7;
     --text-white: #f6fafb;
@@ -17,7 +17,41 @@ header {
 }
 
 p {
+    color: var(--robot-blue);
     text-align: center;
+}
+
+.typed-sentence {
+    display: none;
+}
+
+.typewriter {
+    overflow: hidden;
+    /* border-right: .15em solid orange; */
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+        typing 3s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+
+
+.instructions {
+    margin: 10px;
+    border-radius: 8px;
+    background-color: lightskyblue;
 }
 
 .title {

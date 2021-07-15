@@ -95,9 +95,12 @@
 // methods for resepective buttons to fill battery, reduce stimulation, and fill modifications - done
 // create failure condition -> game ends if battery = 0% or stimulation = 100% - done
 // create round setup -> increase difficulty - done
-// check round number and end game after round 3 
-// find pictures for other robot forms and create mechanism to switch them out depending on the round  
+// check round number and end game after round 3 - done
+// find pictures for other robot forms and create mechanism to switch them out depending on the round - done
 // add field to change name - done 
+// add instructions to beginning - done
+// add game over features for both winning and losing
+// animate frienDroid
 
 /* === Feature Creep === */
 
