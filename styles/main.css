@@ -16,6 +16,10 @@ header {
     color: var(--robot-blue);
 }
 
+p {
+    text-align: center;
+}
+
 .title {
 
 }
@@ -96,6 +100,19 @@ header {
     margin: 10px;
 }
 
+.name-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.name {
+    margin: 10px;
+}
+
+.name-button {
+    margin: 10px;
+}
+
 .button-container {
     display: flex;
     flex-direction: row;
@@ -127,4 +144,13 @@ header {
 
 .invisible {
     visibility: visible;
+}
+
+.name-visible {
+    display: flex;
+    visibility: hidden;
+}
+
+.disappear {
+    display: flex;
 }

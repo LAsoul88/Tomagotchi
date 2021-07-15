@@ -97,6 +97,7 @@
 // create round setup -> increase difficulty - done
 // check round number and end game after round 3 
 // find pictures for other robot forms and create mechanism to switch them out depending on the round  
+// add field to change name
 
 /* === Feature Creep === */
 

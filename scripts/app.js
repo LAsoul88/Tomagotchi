@@ -15,11 +15,18 @@ const frienDroid = {
     battery: 100,
     stimulation: 0,
     modifications: 0,
-    start(event) {
+
+    openPackage(event) {
         $('.box').addClass('robot-head').removeClass('box');
-        frienDroid.startAging();
-        frienDroid.reveal();
         frienDroid.hide();
+        frienDroid.nameReveal();
+    },
+    
+    start(event) {
+        $('.title').text(`${$('.name').val()}`)
+        frienDroid.nameHide();
+        frienDroid.reveal();
+        frienDroid.startAging();
     },
 
     /* 
@@ -190,6 +197,14 @@ const frienDroid = {
         }  
     },
 
+    nameReveal() {
+        $('.name-visible').css('visibility', 'visible');
+    },
+
+    nameHide() {
+        $('.disappear').css('display', 'none');
+    },
+
     reveal() {
         $('.visible').css('visibility', 'visible');
     },
@@ -197,6 +212,7 @@ const frienDroid = {
     hide() {
         $('.invisible').css('visibility', 'hidden');
     },
+
 };
 /* 
     2. event listener on button to begin game
@@ -206,7 +222,8 @@ const frienDroid = {
     -
 */
 
-$(".open-package").on("click", frienDroid.start);
+$(".open-package").on("click", frienDroid.openPackage);
+$(".name-button").on("click", frienDroid.start);
 $("#change-batteries").on("click", frienDroid.batteryFill);
 $("#moderate-internet").on("click", frienDroid.stimulationDrain);
 $("#attach-parts").on("click", frienDroid.modificationFill);
