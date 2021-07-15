@@ -171,6 +171,8 @@ p {
 
 .robot4 {
     content: url('https://ichef.bbci.co.uk/news/976/cpsprodpb/A58C/production/_97508324_robowar.jpg');
+    width: 150px;
+    height: auto;
 }
 
 .age {

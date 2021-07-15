@@ -14,7 +14,7 @@ const frienDroid = {
     round: 1,
     battery: 100,
     stimulation: 0,
-    modifications: 0,
+    modifications: 90, // TODO switch back when done
 
     typing() {
         $('.typed-sentence').eq(0).addClass('typewriter');
@@ -94,7 +94,7 @@ const frienDroid = {
     resetMeters() {
         frienDroid.battery = 100;
         frienDroid.stimulation = 0;
-        frienDroid.modifications = 0;
+        frienDroid.modifications = 90; //TODO switch back when done
     },
 
     /* 
@@ -170,7 +170,7 @@ const frienDroid = {
     },    
     
     buttonDisable() {
-        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100 || frienDroid.round === 4) {
+        if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
             $('.button').prop('disabled', true);
         } else {
             $('.button').prop('disabled', true);
@@ -241,11 +241,17 @@ const frienDroid = {
                 clearInterval(frienDroid.timer);
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.updateRobot();
+                $('.button').prop('disabled', true);
                 clearInterval(frienDroid.timer);
-                frienDroid.buttonDisable();
+                frienDroid.gameOver();
             }    
         }  
     },
+    gameOver() {
+        if (frienDroid.round === 4) {
+            $('.current-form').text('Congrats, you finished your frienDroid! Good thing this one is your friend...').css('font-size', '20px');
+        }
+    }
 };
 /* 
     2. event listener on button to begin game
