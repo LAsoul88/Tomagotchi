@@ -13,8 +13,9 @@ const frienDroid = {
     round: 1,
     battery: 100,
     stimulation: 0,
-    modifications: 50, // NOTE change back to 0 for regular functionality or 50 for easier/debug mode
+    modifications: 0, // NOTE change back to 0 for regular functionality or 50 for easier/debug mode
 
+    // SECTION code I'm proud of!
     typing() {
         $('.typed-sentence').eq(0).addClass('typewriter');
         $('.typed-sentence').eq(0).css('display', 'block').removeClass('typed-sentence');
@@ -94,7 +95,7 @@ const frienDroid = {
     resetMeters() {
         frienDroid.battery = 100;
         frienDroid.stimulation = 0;
-        frienDroid.modifications = 50; // NOTE change back to 0 for regular functionality or 50 for easier/debug mode
+        frienDroid.modifications = 0; // NOTE change back to 0 for regular functionality or 50 for easier/debug mode
     },
 
     /* 
