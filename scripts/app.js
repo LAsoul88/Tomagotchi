@@ -29,7 +29,7 @@ const frienDroid = {
 
     openPackage(event) {
         $('.instructions, .typed-sentence, .typewriter').css('display', 'none');
-        $('.robot').addClass('robot1').removeClass('box');
+        $('.robot').addClass('robot1');
         frienDroid.hide();
         frienDroid.nameReveal();
     },
@@ -39,6 +39,7 @@ const frienDroid = {
         frienDroid.nameHide();
         frienDroid.reveal();
         frienDroid.startAging();
+        $('.robot').addClass('robot-glow');
     },
     
     nameReveal() {
@@ -190,14 +191,6 @@ const frienDroid = {
     -- create method aging()
     --for each second it will add one second to the text in time tag    
    */
-    
-    shakeOne() {
-        $('.robot').addClass('shake-one');
-    },
-
-    shakeTwo() {
-        $('.robot').addClass('shake-two')
-    },
 
     updateRobot() {
         frienDroid.round++;
@@ -219,6 +212,7 @@ const frienDroid = {
             if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
                 frienDroid.buttonDisable();
                 clearInterval(frienDroid.timer);
+                frienDroid.gameOver();
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.updateRobot();
                 frienDroid.resetMeters();
@@ -229,6 +223,7 @@ const frienDroid = {
             if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
                 frienDroid.buttonDisable();
                 clearInterval(frienDroid.timer);
+                frienDroid.gameOver();
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.updateRobot();
                 frienDroid.resetMeters();
@@ -239,6 +234,7 @@ const frienDroid = {
             if (frienDroid.battery <= 0 || frienDroid.stimulation >= 100) {
                 frienDroid.buttonDisable();
                 clearInterval(frienDroid.timer);
+                frienDroid.gameOver();
             } else if (frienDroid.modifications >= 100) {
                 frienDroid.updateRobot();
                 $('.button').prop('disabled', true);
@@ -252,8 +248,14 @@ const frienDroid = {
         $('.button').css('visibility', 'hidden');
         if (frienDroid.round === 4) {
             $('.current-form').text('Congrats, you finished your frienDroid! Good thing this one is your friend...').css('font-size', '20px');
+        } else if (frienDroid.battery <= 0) {
+            $('.current-form').text('Oh no, the battery ran out!').css('font-size', '20px');
+            $('.robot').addClass('spin-half');
+        } else {
+            $('.current-form').text('Oh no, it became self-aware too quickly and burnt out!');
+            $('.robot').addClass('spinning');
         }
-    }
+    },
 };
 /* 
     2. event listener on button to begin game

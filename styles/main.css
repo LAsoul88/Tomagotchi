@@ -159,6 +159,24 @@ p {
     width: 100px;
     height: 100px;
     margin: 10px;
+    box-shadow: 0 0 10px 10px #5BC236;
+}
+
+.robot-glow {
+    animation: glow 2s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px 10px #5BC236;
+    }
+    50% {
+        box-shadow: 0 0 10px 20px #5BC236;
+    }
+    100% {
+        box-shadow: 0 0 10px 10px #5BC236;
+    }
 }
 
 .robot2 {
@@ -177,7 +195,8 @@ p {
 
 .age {
     margin: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
+    color: var(--robot-blue);
 }
 
 .open-package {
@@ -286,4 +305,23 @@ p {
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
     
+}
+
+
+
+
+.spinning {
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
