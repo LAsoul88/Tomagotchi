@@ -250,9 +250,10 @@ const frienDroid = {
             $('.current-form').text('Congrats, you finished your frienDroid! Good thing this one is your friend...').css('font-size', '20px');
         } else if (frienDroid.battery <= 0) {
             $('.current-form').text('Oh no, the battery ran out!').css('font-size', '20px');
-            $('.robot').addClass('spin-half');
+            $('.robot').css('box-shadow', 'none');
+            $('.robot').removeClass('robot-glow');
         } else {
-            $('.current-form').text('Oh no, it became self-aware too quickly and burnt out!');
+            $('.current-form').text('Oh no, it became self-aware too quickly and burnt out!').css('font-size', '20px');
             $('.robot').addClass('spinning');
         }
     },
