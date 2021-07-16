@@ -99,12 +99,12 @@
 // find pictures for other robot forms and create mechanism to switch them out depending on the round - done
 // add field to change name - done 
 // add instructions to beginning - done
-// add game over features for both winning and losing
-// animate frienDroid
+// add game over features for both winning and losing - none
+// animate frienDroid - none
 
 /* === Feature Creep === */
 
 // meters will fill and drain color based on the percentage they are full
 // balance the values for all meters/buttons
-// intro screen will display text (maybe animated like a typewriter) to explain the rules of the game
+// intro screen will display text (maybe animated like a typewriter) to explain the rules of the game - done
 // add button that resets game to opening state (open package button)

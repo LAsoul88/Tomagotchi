@@ -9,7 +9,6 @@
  */
 
 const frienDroid = {
-    colors: ['gray', 'blue', 'red'],
     age: 0,
     round: 1,
     battery: 100,
@@ -22,7 +21,7 @@ const frienDroid = {
     },
     
     instructions(event) {
-        $('.instructions').css('display', 'none');
+        $('.instructions').css('visibility', 'hidden');
         frienDroid.typing()
         setInterval(frienDroid.typing, 2500);
     },
@@ -75,7 +74,7 @@ const frienDroid = {
         },
 
     metersRunningOne() {
-        frienDroid.battery -= 4;
+        frienDroid.battery -= 5;
         frienDroid.stimulation += 3;
         frienDroid.updateMeters();
     },
@@ -258,6 +257,7 @@ const frienDroid = {
         }
     },
 };
+
 /* 
     2. event listener on button to begin game
     - select ".open-package" from the dom - done

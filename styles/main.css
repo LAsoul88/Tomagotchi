@@ -86,12 +86,13 @@ p {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    margin-top: -110px;
     position: relative;
 }
 
 .meter {
     border: 2px solid black;
-    width: 125px;
+    width: 130px;
     height: 36px;
     margin: 10px;
     margin-top: 500px;
@@ -196,7 +197,7 @@ p {
 .age {
     margin: 10px;
     margin-top: 30px;
-    color: var(--robot-blue);
+    color: var(--robot-lightgray);
 }
 
 .open-package {
@@ -230,13 +231,15 @@ p {
     flex-direction: row;
     justify-content: center; 
     align-items: center;
-    margin-top: -100px;
+    margin-top: -120px;
 }
 
 .button {
     margin: 10px;
     padding: 15px;
     border-radius: 8px;
+    width: 130px;
+    height: 60px;
 }
 
 .button#change-batteries {
@@ -257,6 +260,10 @@ p {
 
 .invisible {
     visibility: visible;
+}
+
+.name-prompt {
+    color: var(--robot-lightgray);
 }
 
 .name-visible {
