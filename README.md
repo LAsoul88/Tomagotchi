@@ -1,4 +1,12 @@
-# Tomagotchi
+# frienDroid
+
+# THE GAME 
+
+# Welcome to frienDroid! This is my take on the Tomagotchi game type. In this game, the player must balance the needs of their mail-order friend, frienDroid. The player will have to change batteries, moderate internet usage, and add more components to upgrade frienDroid to the point that it can sustain itself. 
+
+# It has been said that all art is iterative, and I figured my project should reflect that. My game was devised as a twist on the traditional Tomagotchi formula that will be played at a faster pace with *slightly* different game mechanics. In addition, there is a slightly cheeky sense of humor that I hope isn't lost on the player.
+
+# This game was created using HTML, CSS, JavaScript, and JQuery. I elected to use an object-oriented approach, and after completing the MVP, I can see how powerful this approach is.
 
 # Wire-Frame
 
@@ -108,3 +116,10 @@
 // balance the values for all meters/buttons
 // intro screen will display text (maybe animated like a typewriter) to explain the rules of the game - done
 // add button that resets game to opening state (open package button)
+
+/* === Unsolved Problems === */
+
+// how to make meters that fill up and drain with color corresponding to the percentage
+// how to create smooth animations (particularly how to animate an element off screen without returning)
+// I could not stop all of the positioning glitches caused by pressing buttons and elminiating elements
+// a general sense for styling, I think I could learn a lot more about how to make polished javascript feel more polished by way of css

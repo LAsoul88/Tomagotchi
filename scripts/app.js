@@ -13,7 +13,7 @@ const frienDroid = {
     round: 1,
     battery: 100,
     stimulation: 0,
-    modifications: 90, // TODO switch back when done
+    modifications: 0, // NOTE change back to 0 for regular functionality or 50 for easier/debug mode
 
     typing() {
         $('.typed-sentence').eq(0).addClass('typewriter');
@@ -94,7 +94,7 @@ const frienDroid = {
     resetMeters() {
         frienDroid.battery = 100;
         frienDroid.stimulation = 0;
-        frienDroid.modifications = 90; //TODO switch back when done
+        frienDroid.modifications = 0; // NOTE change back to 0 for regular functionality or 50 for easier/debug mode
     },
 
     /* 
